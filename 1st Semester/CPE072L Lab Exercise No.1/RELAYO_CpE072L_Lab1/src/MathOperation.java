@@ -1,31 +1,48 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 
 public class MathOperation {
+    
     Scanner input = new Scanner(System.in);
 
     MathOperation() {
 
     }
     public int selectOperation() {
-        System.out.println("---------------------------------------");
-        System.out.println("Mathematical Operation");
-        System.out.println("---------------------------------------");
-        System.out.println("1 - Square of a number");
-        System.out.println("2 - Cube of a number");
-        System.out.println("3 - Sum of the square of 1 to nth a number");
-        System.out.println("4 - Sum of the Reverse Power of 1 to n");
-        System.out.println("5 - Equivalent single digit of a number n");
-        System.out.println("0 - Program Exit");
-        System.out.println("---------------------------------------");
-        System.out.print("Choose one of the operations: ");
-        return input.nextInt();
+        while (true) {
+            try {
+                System.out.println("---------------------------------------");
+                System.out.println("Mathematical Operation");
+                System.out.println("---------------------------------------");
+                System.out.println("1 - Square of a number");
+                System.out.println("2 - Cube of a number");
+                System.out.println("3 - Sum of the square of 1 to nth a number");
+                System.out.println("4 - Sum of the Reverse Power of 1 to n");
+                System.out.println("5 - Equivalent single digit of a number n");
+                System.out.println("0 - Program Exit");
+                System.out.println("---------------------------------------");
+                System.out.print("Choose one of the operations: ");
+                return input.nextInt();
+            } catch (InputMismatchException error1) {
+                System.out.printf("Error: Exception from the \"main\" line\n%s\n", error1);
+                System.out.println("Please enter valid math operation, Try again!");
+                input.nextLine();
+            }
+        }
     }
     public int acceptNumber() {
-        int check_num;
+        int check_num = 0;
+
         do {
-            System.out.print("Enter a number from 1 to 999: ");
-            check_num = input.nextInt();
+            try {
+                System.out.print("Enter a number from 1 to 999: ");
+                check_num = input.nextInt();
+            } catch (InputMismatchException error2) {
+                System.out.printf("Error: Exception from the \"main\" line\n%s\n", error2);
+                System.out.println("Please enter valid math operation, Try again!");
+                input.nextLine();
+            }
         } while (check_num <= 0 || check_num >= 1000);
         return check_num;   
     }
@@ -89,7 +106,8 @@ public class MathOperation {
     public boolean tryAnother() {
         String user_input;
         while (true) {
-            user_input = JOptionPane.showInputDialog(null, "Do you want to continue?(Y/N)", null, 2).toLowerCase();
+
+            user_input = JOptionPane.showInputDialog(null, "Do you want to continue?(Y/N)", null, 3).toLowerCase();
 
             if (user_input.equals("y")) {
                 return true;
@@ -99,7 +117,5 @@ public class MathOperation {
             }
         }
 
-        
-        
     }
 }

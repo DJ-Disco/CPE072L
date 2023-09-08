@@ -1,11 +1,9 @@
-import java.util.InputMismatchException;
-
 public class RELAYO_CpE072L_Lab1 {
     public static void main(String[] args) throws Exception {
         MathOperation math = new MathOperation();
         int user_input;
-        boolean running = true;
-        int x = 0;
+        boolean isRunning = true;
+
 
 
         do {
@@ -17,7 +15,7 @@ public class RELAYO_CpE072L_Lab1 {
                     
                     math.displayResult(1, math.calculateSquareOfNumber(user_input), user_input);
 
-                    running = math.tryAnother();
+                    isRunning = math.tryAnother();
 
                     break;
 
@@ -26,7 +24,7 @@ public class RELAYO_CpE072L_Lab1 {
 
                     math.displayResult(2, math.calculateCubeOfNumber(user_input), user_input);
 
-                    running = math.tryAnother();
+                    isRunning = math.tryAnother();
                     
                     break; 
                 case 3:
@@ -34,7 +32,7 @@ public class RELAYO_CpE072L_Lab1 {
 
                     math.displayResult(3, math.calculateSumOfSquare(user_input), user_input);
 
-                    running = math.tryAnother();
+                    isRunning = math.tryAnother();
                                         
                     break;
                 case 4:
@@ -42,7 +40,7 @@ public class RELAYO_CpE072L_Lab1 {
 
                     math.displayResult(4, math.calculateSumOfReversePower(user_input), user_input);
 
-                    running = math.tryAnother();
+                    isRunning = math.tryAnother();
                                         
                     break;
                 case 5:
@@ -50,21 +48,20 @@ public class RELAYO_CpE072L_Lab1 {
                 
                     math.displayResult(5, math.getEquivalentSingleDigit(user_input), user_input);
 
-                    running = math.tryAnother();
+                    isRunning = math.tryAnother();
                                         
                     break;
                 case 0:
                     math.exitProgram();
 
-                    running = false;
+                    isRunning = false;
 
                     break;
-                default:
-                    break;   
+
             }
 
             
-        } while (running);
+        } while (isRunning);
 
     }
 }

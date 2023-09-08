@@ -1,20 +1,24 @@
 public class TestCpE072LAssign1 {
     public static void main(String[] args) throws Exception {
+
         TraingleAsterisk triangle = new TraingleAsterisk();
-        boolean running = true;
+        boolean isRunning = true;
+
         do {
 
+            //Runs the program
             triangle.drawTriangle(triangle.readOddNumber());
             
+            //Asks users if they want to try again
             if(triangle.tryAgain()) {
                 System.out.println();
-                running = true;
+                isRunning = true;
             } else {
                 System.out.println("Program terminated!");
-                running = false;
+                isRunning = false;
             }
 
-        } while (running);
+        } while (isRunning);
 
     }
 }
