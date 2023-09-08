@@ -1,32 +1,70 @@
-import javax.swing.JOptionPane;
-import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class RELAYO_CpE072L_Lab1 {
     public static void main(String[] args) throws Exception {
         MathOperation math = new MathOperation();
+        int user_input;
+        boolean running = true;
+        int x = 0;
 
-        switch (math.selectOperation()) {
-            case 1:
-                math.calculateSquareOfNumber(math.acceptNumber());
-                break;
-            case 2:
-                math.calculateCubeOfNumber(math.acceptNumber());
-                break; 
-            case 3:
-                math.calculateSumOfSquare(math.acceptNumber());
-                break;
-            case 4:
-                math.calculateSumOfReversePower(math.acceptNumber());
-                break;
-            case 5:
-                math.getEquivalentSingleDigit(math.acceptNumber());
-                break;
-            case 0:
-                break;
-            default:
-                break;   
-        }
+
+        do {
+
+            switch (math.selectOperation()) {
+                case 1:  
+
+                    user_input = math.acceptNumber();
+                    
+                    math.displayResult(1, math.calculateSquareOfNumber(user_input), user_input);
+
+                    running = math.tryAnother();
+
+                    break;
+
+                case 2:
+                    user_input = math.acceptNumber();
+
+                    math.displayResult(2, math.calculateCubeOfNumber(user_input), user_input);
+
+                    running = math.tryAnother();
+                    
+                    break; 
+                case 3:
+                    user_input = math.acceptNumber();
+
+                    math.displayResult(3, math.calculateSumOfSquare(user_input), user_input);
+
+                    running = math.tryAnother();
+                                        
+                    break;
+                case 4:
+                    user_input = math.acceptNumber();
+
+                    math.displayResult(4, math.calculateSumOfReversePower(user_input), user_input);
+
+                    running = math.tryAnother();
+                                        
+                    break;
+                case 5:
+                    user_input = math.acceptNumber();
+                
+                    math.displayResult(5, math.getEquivalentSingleDigit(user_input), user_input);
+
+                    running = math.tryAnother();
+                                        
+                    break;
+                case 0:
+                    math.exitProgram();
+
+                    running = false;
+
+                    break;
+                default:
+                    break;   
+            }
+
+            
+        } while (running);
 
     }
 }

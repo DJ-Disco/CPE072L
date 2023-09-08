@@ -7,7 +7,6 @@ public class MathOperation {
     MathOperation() {
 
     }
-
     public int selectOperation() {
         System.out.println("---------------------------------------");
         System.out.println("Mathematical Operation");
@@ -22,7 +21,6 @@ public class MathOperation {
         System.out.print("Choose one of the operations: ");
         return input.nextInt();
     }
-
     public int acceptNumber() {
         int check_num;
         do {
@@ -31,7 +29,6 @@ public class MathOperation {
         } while (check_num <= 0 || check_num >= 1000);
         return check_num;   
     }
-
     public long calculateSquareOfNumber(int num) {
         return num*num;
     }
@@ -39,35 +36,70 @@ public class MathOperation {
         return num*num*num;
     }
     public long calculateSumOfSquare(int num) {
-        int total = 0;
+        int result = 0;
         for (int i = 1; i<=num; i++) {
-            total += i*i;
+            result += i*i;
         }
-        return total;
+        return result;
     }
     public long calculateSumOfReversePower(int num) {
-        int total = 0;
+        int result = 0;
         for (int i = 1; i<=num; i++) {
             int n = 1;
             for (int j = num; j >= i; j--) {
                 n *= i;
             }
-            total += n;
+            result += n;
         }
-        return total;
+        return result;
     }
     public int getEquivalentSingleDigit(int num) {
-        return 123%10;
+        int result = 0;
+        do {
+            num = (num/10) + (num%10);
+            result = num;
+        } while (result > 9);
+        return result;
     }
-    public void displayResult(int choice) {
+    public void displayResult(int choice, long result, int input) {
+        switch (choice) {
+            case 1:
+            System.out.printf("The square of %d is equal to %d\n", input, result);
+                break;
+            case 2:
+            System.out.printf("The cube of %d is equal to %d\n", input, result);
+                break;
+            case 3:
+            System.out.printf("The sum of the square of 1 to %d is equal to %d\n", input, result);
+                break;
+            case 4:
+            System.out.printf("The sum of the reverse power of 1 to %d is equal to %d\n", input, result);
+                break;
+            case 5:
+            System.out.printf("The equivalent of single digit of %d is equal to %d\n", input, result);
+                break;
+        }
 
     }
     public void exitProgram() {
         System.out.println("Thank you for using this program!");
+
         System.out.println("Process completed.");
     }
     public boolean tryAnother() {
+        String user_input;
+        while (true) {
+            user_input = JOptionPane.showInputDialog(null, "Do you want to continue?(Y/N)", null, 2).toLowerCase();
 
-        return false;
+            if (user_input.equals("y")) {
+                return true;
+            } else if (user_input.equals("n")) {
+                exitProgram();
+                return false;
+            }
+        }
+
+        
+        
     }
 }
