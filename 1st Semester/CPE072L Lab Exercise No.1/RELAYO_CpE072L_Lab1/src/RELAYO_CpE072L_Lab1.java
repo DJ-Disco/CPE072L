@@ -1,19 +1,24 @@
 public class RELAYO_CpE072L_Lab1 {
     public static void main(String[] args) throws Exception {
+
+        //Create variables/objects
         MathOperation math = new MathOperation();
-        int user_input;
+        int user_input, selected_operation;
         boolean isRunning = true;
 
-
-
+        //Run program
         do {
 
-            switch (math.selectOperation()) {
+            //Select Math operation
+            selected_operation = math.selectOperation();
+
+            //Determines what Math operation to run
+            switch (selected_operation) {
                 case 1:  
 
                     user_input = math.acceptNumber();
                     
-                    math.displayResult(1, math.calculateSquareOfNumber(user_input), user_input);
+                    math.displayResult(selected_operation, math.calculateSquareOfNumber(user_input), user_input);
 
                     isRunning = math.tryAnother();
 
@@ -22,7 +27,7 @@ public class RELAYO_CpE072L_Lab1 {
                 case 2:
                     user_input = math.acceptNumber();
 
-                    math.displayResult(2, math.calculateCubeOfNumber(user_input), user_input);
+                    math.displayResult(selected_operation, math.calculateCubeOfNumber(user_input), user_input);
 
                     isRunning = math.tryAnother();
                     
@@ -30,7 +35,7 @@ public class RELAYO_CpE072L_Lab1 {
                 case 3:
                     user_input = math.acceptNumber();
 
-                    math.displayResult(3, math.calculateSumOfSquare(user_input), user_input);
+                    math.displayResult(selected_operation, math.calculateSumOfSquare(user_input), user_input);
 
                     isRunning = math.tryAnother();
                                         
@@ -38,7 +43,7 @@ public class RELAYO_CpE072L_Lab1 {
                 case 4:
                     user_input = math.acceptNumber();
 
-                    math.displayResult(4, math.calculateSumOfReversePower(user_input), user_input);
+                    math.displayResult(selected_operation, math.calculateSumOfReversePower(user_input), user_input);
 
                     isRunning = math.tryAnother();
                                         
@@ -46,7 +51,7 @@ public class RELAYO_CpE072L_Lab1 {
                 case 5:
                     user_input = math.acceptNumber();
                 
-                    math.displayResult(5, math.getEquivalentSingleDigit(user_input), user_input);
+                    math.displayResult(selected_operation, math.getEquivalentSingleDigit(user_input), user_input);
 
                     isRunning = math.tryAnother();
                                         
@@ -57,11 +62,7 @@ public class RELAYO_CpE072L_Lab1 {
                     isRunning = false;
 
                     break;
-
             }
-
-            
         } while (isRunning);
-
     }
 }
